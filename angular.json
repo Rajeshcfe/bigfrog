@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "62d1fdd8-ede6-4dd7-afd7-44dcb193ffcf"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -27,7 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/bootstrap.min.css",
+              "src/assets/css/font-awesome.css",
+              "src/assets/css/templatemo-hexashop.css",
+              "src/assets/css/owl-carousel.css",
+              "src/assets/css/lightbox.csss"
+
             ],
             "scripts": []
           },
