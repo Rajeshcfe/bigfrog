@@ -40,6 +40,33 @@
 
 
     <!-- ***** Footer Start ***** -->
+    <p-dialog header="About GeeksforGeeks" 
+     [modal]="true" 
+    [draggable]="true" [resizable]="true">
+      
+    <p class="p-m-0">
+        A Computer Science portal for geeks. 
+        It contains well written, well thought
+        and well-explained computer science 
+        and programming articles. With the idea
+        of imparting programming knowledge, 
+        Mr. Sandeep Jain, an IIT Roorkee alumnus
+        started a dream, GeeksforGeeks. Whether 
+        programming excites you or you feel
+        stifled, wondering how to prepare for 
+        interview questions or how to ace data
+        structures and algorithms, GeeksforGeeks 
+        is a one-stop solution.
+    </p>
+  
+    <ng-template pTemplate="footer">
+        <p-button icon="pi pi-check" 
+             label="OK" 
+            class="p-button-text">
+        </p-button>
+    </ng-template>
+</p-dialog>
+    <app-log-in-section></app-log-in-section>
 <app-footer-section></app-footer-section>
 
 <router-outlet></router-outlet>

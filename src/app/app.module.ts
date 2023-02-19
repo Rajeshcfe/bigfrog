@@ -12,7 +12,11 @@ import { SocialMediaSectionComponent } from './social-media-section/social-media
 import { SubscribeSectionComponent } from './subscribe-section/subscribe-section.component';
 import { TopSectionComponent } from './top-section/top-section.component';
 import { WomenSectionComponent } from './women-section/women-section.component';
-
+import { LogInSectionComponent } from './log-in-section/log-in-section.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogInComponentSectionComponent } from './log-in-component-section/log-in-component-section.component';
+import { DialogModule } from "primeng/dialog";
+import { ButtonModule } from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -25,11 +29,14 @@ import { WomenSectionComponent } from './women-section/women-section.component';
     KidsSectionComponent,
     ExploreSectionComponent,
     SocialMediaSectionComponent,
-    SubscribeSectionComponent
+    SubscribeSectionComponent,
+    LogInSectionComponent,
+    LogInComponentSectionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule, ReactiveFormsModule,DialogModule, 
+            ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
