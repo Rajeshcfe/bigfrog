@@ -14,7 +14,7 @@ import { TopSectionComponent } from './top-section/top-section.component';
 import { WomenSectionComponent } from './women-section/women-section.component';
 import { LogInSectionComponent } from './log-in-section/log-in-section.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LogInComponentSectionComponent } from './log-in-component-section/log-in-component-section.component';
+
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
 
@@ -31,7 +31,7 @@ import { ButtonModule } from "primeng/button";
     SocialMediaSectionComponent,
     SubscribeSectionComponent,
     LogInSectionComponent,
-    LogInComponentSectionComponent
+    
   ],
   imports: [
     BrowserModule,

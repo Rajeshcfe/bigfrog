@@ -42,7 +42,7 @@ this.registraionPage=false;
     this.displayStyle = "block";
   }
   onsubmitData(dataItem:any) {
-    alert("Hiiiii")
+  
     debugger;
     this.displayStyle = "block";
   }
@@ -51,13 +51,9 @@ this.registraionPage=false;
 
     onSubmit() {
         this.submitted = true;
-
-        // stop here if form is invalid
         if (this.registerForm.invalid) {
             return;
         }
-
-        // display form values on success
         alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value, null, 4));
     }
 
