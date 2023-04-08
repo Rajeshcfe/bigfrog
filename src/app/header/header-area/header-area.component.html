@@ -33,10 +33,10 @@
                             </ul>
                         </li>
                         <li class="scroll-to-section"><a href="#explore"  >Explore</a></li>
-                      
+
                         <li class="scroll-to-section"><a (click)="openLoginPopUP()" >Login</a></li>
 
-                    </ul>        
+                    </ul>
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
@@ -45,6 +45,35 @@
             </div>
         </div>
     </div>
+
+  <p-dialog header="Login"
+            [(visible)]="openloginPOPUP" [modal]="true"
+            [draggable]="true" [resizable]="true"
+            [style]="{'width': '75%', 'padding':'5%', 'background-color':'#fff'}">
+
+    <p class="p-m-0">
+      A Computer Science portal for geeks.
+      It contains well written, well thought
+      and well-explained computer science
+      and programming articles. With the idea
+      of imparting programming knowledge,
+      Mr. Sandeep Jain, an IIT Roorkee alumnus
+      started a dream, GeeksforGeeks. Whether
+      programming excites you or you feel
+      stifled, wondering how to prepare for
+      interview questions or how to ace data
+      structures and algorithms, GeeksforGeeks
+      is a one-stop solution.
+    </p>
+
+    <ng-template pTemplate="footer">
+      <p-button icon="pi pi-check"
+                (click)="openloginPOPUP=false" label="OK"
+                class="p-button-text">
+      </p-button>
+    </ng-template>
+  </p-dialog>
+
 </header>
 
 
