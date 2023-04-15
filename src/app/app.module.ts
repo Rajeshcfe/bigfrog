@@ -17,6 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogInComponentSectionComponent } from './log-in-component-section/log-in-component-section.component';
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
+import { BrowserAnimationsModule }
+    from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -31,12 +33,12 @@ import { ButtonModule } from "primeng/button";
     SocialMediaSectionComponent,
     SubscribeSectionComponent,
     LogInSectionComponent,
-    LogInComponentSectionComponent
+    LogInComponentSectionComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,FormsModule, ReactiveFormsModule,DialogModule, 
-            ButtonModule
+    AppRoutingModule,FormsModule, ReactiveFormsModule,DialogModule,
+            ButtonModule, BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
