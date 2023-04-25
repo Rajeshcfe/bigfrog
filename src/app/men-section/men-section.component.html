@@ -1,5 +1,6 @@
 
-<section class="section" id="men">
+<section class="section" id="men" >
+    <div *ngIf="!singleViewProductShowHide">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
@@ -21,8 +22,8 @@
                             <div class="thumb">
                                 <div class="hover-content">
                                     <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="single-product.html"><i class="fa fa-star"></i></a></li>
+                                        <li><a href="#" (click)="showSingleViewProduct()"><i class="fa fa-eye"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-star"></i></a></li>
                                         <li><a href="single-product.html"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -114,6 +115,10 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+    <div *ngIf="singleViewProductShowHide">
+        <app-product-select-single-view></app-product-select-single-view>
     </div>
 </section>
 

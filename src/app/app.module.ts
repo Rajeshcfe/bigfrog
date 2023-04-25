@@ -17,8 +17,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogInComponentSectionComponent } from './log-in-component-section/log-in-component-section.component';
 import { DialogModule } from "primeng/dialog";
 import { ButtonModule } from "primeng/button";
+
 import { BrowserAnimationsModule }
     from "@angular/platform-browser/animations";
+import { ProductSelectSingleViewComponent } from './product-select-single-view/product-select-single-view.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { BrowserAnimationsModule }
     SubscribeSectionComponent,
     LogInSectionComponent,
     LogInComponentSectionComponent,
+    ProductSelectSingleViewComponent,
   ],
   imports: [
     BrowserModule,

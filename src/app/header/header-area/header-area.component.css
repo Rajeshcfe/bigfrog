@@ -1,0 +1,24 @@
+
+
+::ng-deep .p-dialog .p-dialog-header-icon ::after {
+    color: red;
+    content: "x";
+}
+
+/* ::ng-deep .p-dialog .p-dialog-header-icon ::after{  content: "a";; } */
+::ng-deep .p-dialog .p-dialog-header-icon {
+ 
+    color: #fff;
+    font-size: 16px;
+    width: 10px;
+  }
+  ::ng-deep .p-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    background: red;
+    width: 420;
+    margin-left: 14px;
+    margin-right: 14px;
+}

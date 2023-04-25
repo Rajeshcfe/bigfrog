@@ -7,10 +7,16 @@ import 'owl.carousel';
   styleUrls: ['./men-section.component.css']
 })
 export class MenSectionComponent implements OnInit {
+  singleViewProductShowHide:boolean=false;
+  imagevalue:string="";
 
   constructor() { }
 
   ngOnInit(): void {
+    
   }
-
+  showSingleViewProduct(){
+    this.singleViewProductShowHide=true;
+   
+  }
 }
