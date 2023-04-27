@@ -6,5 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'code2023';
+
+  pageSectionView:boolean=true;
+ 
+  accountSectionShow:boolean=false;
+
+  dataComingFromHeaderAccountClick(accountflag: any):void {
+  
+   this.pageSectionView=false;
+  this.accountSectionShow=accountflag;
+ 
+}
+
 }

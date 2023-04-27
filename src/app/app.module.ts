@@ -21,6 +21,8 @@ import { ButtonModule } from "primeng/button";
 import { BrowserAnimationsModule }
     from "@angular/platform-browser/animations";
 import { ProductSelectSingleViewComponent } from './product-select-single-view/product-select-single-view.component';
+import { MyAccountComponent } from './account/my-account/my-account.component';
+import { MyProfileComponent } from './account/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ProductSelectSingleViewComponent } from './product-select-single-view/p
     LogInSectionComponent,
     LogInComponentSectionComponent,
     ProductSelectSingleViewComponent,
+    MyAccountComponent,
+    MyProfileComponent,
   ],
   imports: [
     BrowserModule,

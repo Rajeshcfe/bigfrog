@@ -8,8 +8,13 @@ import { PrimeNGConfig } from "primeng/api";
 export class HeaderAreaComponent implements OnInit {
 
   openloginPOPUP:boolean=false
+  userSignINFlag:boolean=false
+  myProfileFlag:boolean=false
+
   @Output() loginClickEvent = new EventEmitter<string>();
   @Output() passData1 = new EventEmitter<string>();
+
+  @Output() accountFlag = new EventEmitter<any>();
 
   constructor(private primengConfig: PrimeNGConfig) { }
 
@@ -20,5 +25,23 @@ export class HeaderAreaComponent implements OnInit {
   openLoginPopUP()
   {
      this.openloginPOPUP = true;
+  }
+  userSignIN()
+  {
+     this.userSignINFlag=true;
+     this.openloginPOPUP=false;
+  }
+  userSignOut()
+  {
+    this.userSignINFlag=false
+  }
+  myAccount()
+  {
+      
+       this.accountFlag.emit(true);
+  }
+  myProfile()
+  {
+this.myProfileFlag=true;
   }
 }

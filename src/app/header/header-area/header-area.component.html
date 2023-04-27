@@ -1,5 +1,4 @@
-<header class="header-area header-sticky">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<header class="header-area header-sticky">     
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -35,11 +34,21 @@
                         </li>
                         <li class="scroll-to-section"><a href="#explore"  >Explore</a></li>
 
-                        <li class="scroll-to-section"><a (click)="openLoginPopUP()" >Login</a></li>
+                        <li class="scroll-to-section" *ngIf="!userSignINFlag"><a (click)="openLoginPopUP()" >Login</a></li>
 
+                        <li class="submenu"*ngIf="userSignINFlag" >
+                            <a href="javascript:;">User</a>
+                            <ul>
+                                <li><a href="#" (click)="myAccount()">My Account</a></li>
+                                <li><a href="#" (click)="myProfile()">My Profile</a></li>
+                                <li><a href="#" (click)="userSignOut()">Log out</a></li>
+                          
+                            </ul>
+                        </li>
                     </ul>
+                   
                     <a class='menu-trigger'>
-                        <span>Menu</span>
+                            <span>Menu</span>
                     </a>
                     <!-- ***** Menu End ***** -->
                 </nav>
@@ -47,162 +56,76 @@
         </div>
     </div>
 
-  <p-dialog header="Close"  
-  
-            [(visible)]="openloginPOPUP" [modal]="true"
-            [draggable]="false" [resizable]="false"
-            
-            [style]="{'width': '50%', 'padding':'5%' }">
+    <p-dialog 
+    [(visible)]="openloginPOPUP" [modal]="true"
+    [style]="{'width': '55%', 'padding':'5%' ,'heigt':'50%' ,'margin':'1%'}">
 
-   
-        <div class="container" style="margin-right: 0px; height: auto;">    
-            <div id="loginbox" class="">                    
-                <div class="panel panel-info" >
-                        <div class="panel-heading">
-                            <div class="panel-title">Sign In</div>
-                            <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#">Forgot password?</a></div>
-                        </div>     
-    
-                        <div style="padding-top:30px" class="panel-body" >
-    
-                            <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-                                
-                            <form id="loginform" class="form-horizontal" role="form">
-                                     
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text" id="basic-addon1"><i class="glyphicon glyphicon-user"></i></span>
-                                    </div>
-                                    <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="username or email" aria-describedby="basic-addon1">  
-                                  
-                                  </div>
-
-
-                                  <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                      <span class="input-group-text" id="basic-addon1"><i class="glyphicon glyphicon-lock"></i></span>
-                                    </div>
-                                     <input id="login-password" type="password" class="form-control" name="password" placeholder="password" aria-describedby="basic-addon1">
-                                  </div>
-                               
-                               
-                                    
-                                <div class="input-group">
-                                          <div class="checkbox">
-                                            <label>
-                                              <input id="login-remember" type="checkbox" name="remember" value="1"> Remember me
-                                            </label>
-                                          </div>
-                                        </div>
-    
-    
-                                    <div style="margin-top:10px" class="form-group">
-                                        <!-- Button -->
-    
-                                        <div class="col-sm-12 controls">
-                                          <a id="btn-login" href="#" class="btn btn-success" style="margin-right:4px">Login  </a>
-                                          <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="form-group">
-                                        <div class="col-md-12 control">
-                                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                                Don't have an account! 
-                                            <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
-                                                Sign Up Here
-                                            </a>
-                                            </div>
-                                        </div>
-                                    </div>   
-                                    <p-button icon="pi pi-check"
-                                    (click)="openloginPOPUP=false" label="Cancel"
-                                    class="p-button-text"> 
-                                </p-button>
-                                </form>     
-    
-                            </div>                     
-                        </div>  
+    <div class="login-box">
+        <div class="login-snip">
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-space">
+                <div class="login">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input"  placeholder="Enter your username">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password" placeholder="Enter your password">
+                    </div>
+                    <div class="group">
+                        <input id="check" type="checkbox" class="check" checked>
+                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
+                    </div>
+                    <div class="group">
+                        <input type="submit"  (click)="userSignIN()"class="button" value="Sign In">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot">
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <p-button icon="pi pi-check"
+                           (click)="openloginPOPUP=false" label="Cancel"
+                      class="p-button-text">
+                   </p-button>
+                </div>
+                <div class="sign-up-form">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user" type="text" class="input" placeholder="Create your Username">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass" type="password" class="input" data-type="password" placeholder="Create your password">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Repeat Password</label>
+                        <input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password" >
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Email Address</label>
+                        <input id="pass" type="text" class="input" placeholder="Enter your email address">
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                    <!-- <div class="hr"></div> -->
+                <div>
+                        <label for="tab-1">Already Member?</label> 
+                        
+                </div>
+                <p-button icon="pi pi-check"
+                           (click)="openloginPOPUP=false" label="Cancel"
+                      class="p-button-text">
+                   </p-button>
+                    </div>
+                </div>
             </div>
-            <div id="signupbox" style="display:none;" class="">
-                        <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <div class="panel-title">Sign Up</div>
-                                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
-                            </div>  
-                            <div class="panel-body" >
-                                <form id="signupform" class="form-horizontal" role="form">
-                                    
-                                    <div id="signupalert" style="display:none" class="alert alert-danger">
-                                        <p>Error:</p>
-                                        <span></span>
-                                    </div>
-                                        
-                                    
-                                      
-                                    <div class="form-group">
-                                        <label for="email" class="col-md-3 control-label">Email</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="email" placeholder="Email Address">
-                                        </div>
-                                    </div>
-                                   
-                                    <div class="form-group">
-                                        <label for="firstname" class="col-md-3 control-label">First Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control sm" name="firstname" placeholder="First Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="lastname" class="col-md-3 control-label">Last Name</label>
-                                        <div class="col-md-9">
-                                            <input type="text" class="form-control" name="lastname" placeholder="Last Name">
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="password" class="col-md-3 control-label">Password</label>
-                                        <div class="col-md-9">
-                                            <input type="password" class="form-control" name="passwd" placeholder="Password">
-                                        </div>
-                                    </div>
-                                        
-                                    
-                                    <div class="form-group">
-                                        <!-- Button -->                                        
-                                        <div class="col-md-offset-3 col-md-9">
-                                            <button id="btn-signup" type="button" class="btn btn-info"><i class="icon-hand-right"></i>   Sign Up</button>
-                                            <span style="margin-left:8px;">or</span>  
-                                        </div>
-                                    </div>
-                                    
-                                    <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-                                        
-                                        <div class="col-md-offset-3 col-md-9">
-                                            <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
-                                        </div>                                           
-                                            
-                                    </div>
-                                    
-                                    
-                                    
-                                </form>
-                             </div>
-                        </div>
-    
-                   
-             </div> 
+            
         </div>
- 
-    <!-- <ng-template pTemplate="footer">
-      <p-button icon="pi pi-check"
-                (click)="openloginPOPUP=false" label="OK"
-                class="p-button-text">
-      </p-button>
-    </ng-template> -->
-  </p-dialog>
 
+</p-dialog>
 </header>
 
 
