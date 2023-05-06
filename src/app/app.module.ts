@@ -23,6 +23,7 @@ import { BrowserAnimationsModule }
 import { ProductSelectSingleViewComponent } from './product-select-single-view/product-select-single-view.component';
 import { MyAccountComponent } from './account/my-account/my-account.component';
 import { MyProfileComponent } from './account/my-profile/my-profile.component';
+import { AddressComponent } from './account/address/address.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MyProfileComponent } from './account/my-profile/my-profile.component';
     ProductSelectSingleViewComponent,
     MyAccountComponent,
     MyProfileComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,
