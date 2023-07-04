@@ -1,100 +1,86 @@
-<h5> Account > Address</h5>
-<div class="container py-4">
+<div class="container py-4" *ngIf="showAddressSection">
+    <h5> <span  (click)="ClickAccount()">Account ></span> Address</h5>
     <div class="card-deck-wrapper">
         <div class="card-deck">
             <div class="card p-2">
-                <a class="card-block stretched-link text-decoration-none" href>
+                <a class="card-block stretched-link text-decoration-none" (click)="addAddressFormPage()" href="#">
                     <h4 class="card-title">Add Address</h4>
                 </a>
             </div>
-            <div class="card p-2">
+            <div *ngFor="let printAddress of address let indexOfelement=index"class="card p-2">
                 
-                    <h4 class="card-title">{{fullName}}</h4>
-                    <p class="card-text">{{flatOrHouseNo}}</p>
-                    <p class="card-text">{{Area}} {{landMark}}</p>
-                    <p class="card-text">{{TownCity }} {{state}} {{pinCode}}</p>
-                    <p class="card-text">Phone number {{flatOrHouseNo}}</p>
-                    
-             <br>
-             <br>
-             <div>
-             <a class="card-block stretched-link text-decoration-none" href="/">Edit </a> |
-            <a class="card-block stretched-link text-decoration-none" href="/">Remove </a>  |
-            <a class="card-block stretched-link text-decoration-none" href="/">set as Default </a> 
-        </div>  
+                    <h4 class="card-title">{{printAddress.fullName}}</h4>{{indexOfelement}}
+                    <p class="card-text">{{printAddress.flatOrHouseNo}}</p>
+                    <p class="card-text">{{printAddress.area}} {{printAddress.landMark}}</p>
+                    <p class="card-text">{{printAddress.townCity }} {{printAddress.state}} {{printAddress.pinCode}}</p>
+                    <p class="card-text">Phone number {{printAddress.flatOrHouseNo}}</p>
+                    <br>
+                    <br>
+                    <div>
+                    <a class="card-block stretched-link text-decoration-none" (click)="editAddress(indexOfelement)"  href="#">Edit </a> |
+                   <a class="card-block stretched-link text-decoration-none" (click)="deletetAddress(indexOfelement,printAddress)"  href="#">Remove </a>  |
+                   <a class="card-block stretched-link text-decoration-none" (click)="setDeafultAddress(printAddress)"  href="#">set as Default </a> 
+               </div> 
+             
             </div>
-            
            
-<!-- Add/Edit Address -->
-<div class="container">
+        </div>
+    </div>
+</div>
+
+<!-- Add Address -->
+<div class="container" *ngIf="showAddresSection">
+    <h5> Account ><a href="#"(click)="handlBack()" >Address ></a>ADD Address</h5>  &nbsp;
     <div class="row">
         <div class="col-md-8 mx-auto">
             <div class="card">
                 <div class="card-header">
-                    <h3>Add or Edit Address</h3>
+                    <h3>Add  Address</h3>
                 </div>
                 <div class="card-body">
-                    <form class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <form class="form" [formGroup]="addAddressFormData" (ngSubmit)="onSubmit()">
                         <div class="form-group">
                             <label>Full Name</label>
-                            <input type="text" class="form-control" formControlName="fullName">
-                            <span class="text-danger"
-
-                            
-                                *ngIf="(registerFormControl['fullName'].touched || submitted) && registerFormControl['fullName'].errors?.['required']">
-                                Full is required
-                            </span>
+                            <input type="text" id ="fullName" class="form-control" formControlName="fullName">
+                           
                         </div>
                         <div class="form-group">
                             <label>Flat Or HouseNo</label>
-                            <input type="text" class="form-control" formControlName="flatOrHouseNo">
-                            <span class="text-danger"
-                                *ngIf="(registerFormControl['flatOrHouseNo'].touched || submitted) && registerFormControl['flatOrHouseNo'].errors?.['required']">
-                                Flat Or HouseNo is required
-                            </span>
-                            <span class="text-danger"
-                                *ngIf="registerFormControl['flatOrHouseNo'].touched  &&  registerFormControl['flatOrHouseNo'].errors?.['required']">
-                                Enter a valid flatOrHouseNo address
-                            </span>
+                            <input type="text" id="flatOrHouseNo" class="form-control" formControlName="flatOrHouseNo">
+                          
                         </div>
                         <div class="form-group">
-                            <label>Area</label>
-                            <input type="text" class="form-control" formControlName="Area">
-                            <span class="text-danger"
-                                *ngIf="(registerFormControl['Area'].touched  || submitted) && registerFormControl['Area'].errors?.['required']">
-                                Area Name is required
-                            </span>
-                            <span class="text-danger"
-                                *ngIf="registerFormControl['Area'].touched  && registerFormControl['Area'].errors?.['required']">
-                                Area Name is not available
-                            </span>
+                            <label>area</label>
+                            <input type="text" id="area" class="form-control" formControlName="area">
+                        
                         </div>
                         <div class="form-group">
                             <label>LandMark</label>
                             <input type="landMark" class="form-control" formControlName="landMark">
-                            <span class="text-danger"
-                                *ngIf="(registerFormControl['landMark'].touched  || submitted) && registerFormControl['landMark'].errors?.['required']">
-                                landMark is required
-                            </span>
-                            <span class="text-danger"
-                                *ngIf="registerFormControl['landMark'].touched  && registerFormControl['landMark'].errors?.['required']">
-                                LandMark is required
-                            </span>
+                          
                         </div>
                         <div class="form-group">
-                            <label>Confirm Password</label>
-                            <input type="password" class="form-control" formControlName="confirmPassword">
-                            <span class="text-danger"
-                                *ngIf="(registerFormControl['confirmPassword'].touched || submitted)&& registerFormControl['confirmPassword'].errors?.['required']">
-                                Confirm Password is required
-                            </span>
-                            <span class="text text-danger"
-                                *ngIf="registerFormControl['confirmPassword'].touched  &&registerFormControl['confirmPassword'].errors?.['required']">
-                                Passwords doesnot match
-                            </span>
+                            <label>Town City</label>
+                            <input type="townCity" class="form-control" formControlName="townCity">
+                           
+                           
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-success">Register</button>
+                            <label>State </label>
+                            <input type="state" class="form-control" formControlName="state">
+                           
+                        </div>
+                        <div class="form-group">
+                            <label>Pin Code</label>
+                            <input type="pinCode" class="form-control" formControlName="pinCode">
+                          
+                           
+                        </div>
+                       
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success">Add Address</button>
+                            &nbsp;  &nbsp;
+                            <a href="#"(click)="handlBack()" class="btn btn-primary">Cancel</a>
                         </div>
                     </form>
                 </div>
@@ -102,3 +88,90 @@
         </div>
     </div>
 </div>
+
+<!-- Edit Address -->
+<div class="container" *ngIf="showEditAddresSection">
+    <h5> Account ><a href="#"(click)="handlBack()" >Address ></a>Edit Address</h5>  &nbsp;
+    <div class="container">
+              
+        <form [formGroup]="formEditObject" (ngSubmit)="UpdateAddresFormData()">
+        
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+           <input 
+                    formControlName="fullName"
+                    id="fullName" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.fullName"
+                    class="form-control">  
+                   
+            </div>
+             
+            <div class="form-group">
+              
+                <label for="flatOrHouseNo">Flat / HouseNo</label>
+                <textarea 
+                    formControlName="flatOrHouseNo"
+                    id="flatOrHouseNo" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.flatOrHouseNo"
+                    class="form-control">
+                </textarea>
+            </div>
+             
+            <div class="form-group">
+                <label for="area">area:</label>
+                <input 
+                    formControlName="area"
+                    id="area" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.area"
+                    class="form-control"> 
+            </div>
+             
+            <div class="form-group">
+              
+                <label for="townCity">townCity</label>
+                <input 
+                    formControlName="townCity"
+                    id="townCity" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.townCity"
+                    class="form-control">
+           
+            </div>
+            <div class="form-group">
+                <label for="state">State</label>
+                <input 
+                    formControlName="state"
+                    id="state" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.state"
+                    class="form-control"> 
+            </div>
+             
+            <div class="form-group">
+              
+                <label for="currentAddress">Lamd Mark</label>
+                <input 
+                    formControlName="landMark"
+                    id="landMark" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.landMark"
+                    class="form-control">
+               
+            </div>
+            <div class="form-group">
+              
+                <label for="pinCode">Pin Code</label>
+                <input 
+                    formControlName="pinCode"
+                    id="pinCode" 
+                    type="text" 
+                    [(ngModel)]="editAddressData.pinCode"
+                    class="form-control">
+               
+            </div>
+            <button class="btn btn-success" type="submit" >Update Address</button> 
+            &nbsp;  &nbsp;
+            <a href="#"(click)="handlBack()" class="btn btn-primary">Cancel</a>

@@ -14,7 +14,7 @@ export class AppComponent {
   dataComingFromHeaderAccountClick(accountflag: any):void {
   
    this.pageSectionView=false;
-  this.accountSectionShow=accountflag;
+   this.accountSectionShow=accountflag;
  
 }
 

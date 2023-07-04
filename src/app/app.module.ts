@@ -24,6 +24,9 @@ import { ProductSelectSingleViewComponent } from './product-select-single-view/p
 import { MyAccountComponent } from './account/my-account/my-account.component';
 import { MyProfileComponent } from './account/my-profile/my-profile.component';
 import { AddressComponent } from './account/address/address.component';
+import { MyOrdersComponent } from './account/my-orders/my-orders.component';
+import { LoginSecurityComponent } from './account/login-security/login-security.component';
+import { PaymentOptionsComponent } from './account/payment-options/payment-options.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { AddressComponent } from './account/address/address.component';
     MyAccountComponent,
     MyProfileComponent,
     AddressComponent,
+    MyOrdersComponent,
+    LoginSecurityComponent,
+    PaymentOptionsComponent,
   ],
   imports: [
     BrowserModule,

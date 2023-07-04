@@ -56,75 +56,54 @@
         </div>
     </div>
 
-    <p-dialog 
-    [(visible)]="openloginPOPUP" [modal]="true"
-    [style]="{'width': '55%', 'padding':'5%' ,'heigt':'50%' ,'margin':'1%'}">
+    <p-dialog  [closable]="false" [(visible)]="openloginPOPUP" [modal]="true">
+    <div class="d-flex justify-content-center align-items-center mt-5">
 
-    <div class="login-box">
-        <div class="login-snip">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Login</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-            <div class="login-space">
-                <div class="login">
-                    <div class="group">
-                        <label for="user" class="label">Username</label>
-                        <input id="user" type="text" class="input"  placeholder="Enter your username">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password" placeholder="Enter your password">
-                    </div>
-                    <div class="group">
-                        <input id="check" type="checkbox" class="check" checked>
-                        <label for="check"><span class="icon"></span> Keep me Signed in</label>
-                    </div>
-                    <div class="group">
-                        <input type="submit"  (click)="userSignIN()"class="button" value="Sign In">
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot">
-                        <a href="#">Forgot Password?</a>
-                    </div>
-                    <p-button icon="pi pi-check"
-                           (click)="openloginPOPUP=false" label="Cancel"
-                      class="p-button-text">
-                   </p-button>
+        <div class="card">
+
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist"  [style]="{'margin': '0%'}">
+                <li class="nav-item text-center">
+                  <a class="nav-link active btl" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Login</a>
+                </li>
+                <li class="nav-item text-center">
+                  <a class="nav-link btr" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Signup</a>
+                </li>
+               
+              </ul>
+              <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  
+                  <div class="form px-4 pt-5">
+
+                    <input type="text" name="" class="form-control" placeholder="Email or Phone">
+                    <input type="text" name="" class="form-control" placeholder="Password">
+                    <button class="btn btn-dark btn-block" (click)="userSignIN()">Login</button>
+                    <button class="btn btn-secondary btn-block"
+                    (click)="openloginPOPUP=false" label="Cancel" >Cancel</button>
+                  </div>
                 </div>
-                <div class="sign-up-form">
-                    <div class="group">
-                        <label for="user" class="label">Username</label>
-                        <input id="user" type="text" class="input" placeholder="Create your Username">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Password</label>
-                        <input id="pass" type="password" class="input" data-type="password" placeholder="Create your password">
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
-                        <input id="pass" type="password" class="input" data-type="password" placeholder="Repeat your password" >
-                    </div>
-                    <div class="group">
-                        <label for="pass" class="label">Email Address</label>
-                        <input id="pass" type="text" class="input" placeholder="Enter your email address">
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Sign Up">
-                    </div>
-                    <!-- <div class="hr"></div> -->
-                <div>
-                        <label for="tab-1">Already Member?</label> 
-                        
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                  <div class="form px-4">
+
+                    <input type="text" name="" class="form-control" placeholder="Name">
+
+                    <input type="text" name="" class="form-control" placeholder="Email">
+
+                    <input type="text" name="" class="form-control" placeholder="Phone">
+
+                    <input type="text" name="" class="form-control" placeholder="Password">
+
+                    <button class="btn btn-dark btn-block">Signup</button>
+                    <button class="btn btn-secondary btn-block" (click)="openloginPOPUP=false"  [style]="{'margin-block': '2%' }" >Cancel</button>
+                  </div>
+                  
                 </div>
-                <p-button icon="pi pi-check"
-                           (click)="openloginPOPUP=false" label="Cancel"
-                      class="p-button-text">
-                   </p-button>
-                    </div>
-                </div>
-            </div>
-            
+                
+               </div>
         </div>
 
+      </div>
+     
 </p-dialog>
 </header>
 
